@@ -1,0 +1,26 @@
+{
+  "name": "blogsserver",
+  "version": "0.0.1",
+  "description": "blog server",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Propan",
+  "license": "ISC",
+  "dependencies": {
+    "keygrip": "^1.0.3",
+    "koa": "^2.5.3",
+    "koa-better-body": "^3.0.4",
+    "koa-logger": "^3.2.0",
+    "koa-router": "^7.4.0",
+    "koa-static": "^5.0.0"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "install": "^0.12.1",
+    "nodemon": "^1.18.4",
+    "npm": "^6.4.1"
+  }
+}
