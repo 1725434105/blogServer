@@ -6,6 +6,7 @@ const Router = require('koa-router');
 const router = new Router();
 const app = new Koa();
 
+const mimeType = require('./utils/setMineType')
 
 
 app.keys = new KeyGrip(['im a newer secret', 'i like turtle'], 'sha256');
@@ -18,11 +19,12 @@ app.keys = new KeyGrip(['im a newer secret', 'i like turtle'], 'sha256');
 
 // x-response-time
 app.use(async (ctx, next) => {
+  console.log(mimeType(path.parse(ctx.url)));
+  ctx.set('Content-Type', mimeType(path.parse(ctx.url)));
   const start = Date.now();
   await next();
   const ms = Date.now() - start;
   ctx.set('X-Reponse-Time',   `${ms}ms`);
-  ctx.set('Content-Type', 'text/html;charset=utf-8')
   ctx.cookies.set('name', 'tobi', { signed: true });
 })
 
